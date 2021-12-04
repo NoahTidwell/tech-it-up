@@ -47,9 +47,43 @@ router.post('/', (req, res) => {
 });
 
 // PUT /api/users/1
-router.put('/:id', (req, res) => {});
+router.put('/:id', (req, res) => {
+    User.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbData => {
+        if(!dbData) {
+            res.status(404).json({ message: 'No user exist with this ID'});
+            return;
+        }
+        res.json(dbData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // DELETE /api/users/1
-router.delete('/:id', (req, res) => {});
+router.delete('/:id', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbData => {
+        if(!dbData) {
+            res.status(404).json({ message: 'No user exist with this ID'});
+            return;
+        }
+        res.json(dbData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
