@@ -16,10 +16,11 @@
     color: chartreuse;
     font-weight: bold;
     transition: color .1s;
+    margin-left: 10px;
   }
   
   a:hover {
-    color: #3486eb;
+    color: palevioletred;
   }
   
   button {
@@ -98,8 +99,7 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
+    color: red;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
