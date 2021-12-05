@@ -57,13 +57,13 @@ router.post('/', (req, res) => {
         username: req.body.username,
         password: req.body.password
     })
-    .then(dbUserData => {
+    .then(dbData => {
       req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.username = dbUserData.username;
+        req.session.user_id = dbData.id;
+        req.session.username = dbData.username;
         req.session.loggedIn = true;
     
-        res.json(dbUserData);
+        res.json(dbData);
       });
     })
     
