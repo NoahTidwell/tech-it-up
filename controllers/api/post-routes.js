@@ -62,11 +62,11 @@ router.get('/', (req, res) => {
   });
 
   router.post('/', (req, res) => {
-      Post.create({
-          title: req.body.title,
-          post_url: req.body.post_url,
-          user_id: req.session.user_id
-      })
+    Post.create({
+      title: req.body.title,
+      post_url: req.body.post_url,
+      user_id: req.session.user_id
+    })
       .then(dbData => res.json(dbData))
       .catch(err => {
           console.log(err);
